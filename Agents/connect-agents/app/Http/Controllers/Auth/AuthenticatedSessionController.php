@@ -39,7 +39,7 @@ class AuthenticatedSessionController extends Controller
 
         // Redirect According to roles - Client
         if (Auth::user()->status==0){
-            return redirect()->intended(RouteServiceProvider::CLIENT);
+            return redirect()->intended(RouteServiceProvider::CLIENTS);
         }
 
        

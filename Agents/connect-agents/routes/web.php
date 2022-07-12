@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AgentsTransactions;
+use App\Http\Controllers\Clients\Invoice;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,9 +17,13 @@ use App\Http\Controllers\AgentsTransactions;
 
 
 // Save Customers Data
+/*
 Route::post('save_data', [AgentsTransactions::class, 'insert_transactions'])->middleware(['auth'])->name('insert');
+*/
 
 
+// Store and Download Clients Invoice
+Route::post('store_invoice', [Invoice::class, 'clients_invoice'])->middleware(['auth','Clients'])->name('store_invoice');
 
 
 
@@ -28,9 +33,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
+
+
+
 // Agents Dashboard
 Route::get('/dashboard', function () {
-    return view('dashboard.index');
+    return view('dashboard.agents');
 })->middleware(['auth','Agents'])->name('dashboard');
 
 
