@@ -21,7 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'momo_number',
-        'password'
+        'password',
+        'role'
     ];
 
     /**

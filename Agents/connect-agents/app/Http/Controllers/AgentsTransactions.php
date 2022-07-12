@@ -26,6 +26,7 @@ class AgentsTransactions extends Controller
         $client_data->client_phone = $request->client_phone;
         $client_data->referal_code = $request->referal_code;
         $client_data->amount = $request->amount;
+        $client_data->role = 1;
         $client_data->save();       
         
        

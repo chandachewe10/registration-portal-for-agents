@@ -28,8 +28,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Agents Dashboard
 Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+    return view('dashboard.index');
+})->middleware(['auth','Agents'])->name('dashboard');
+
+
+// Clients Dashboard
+Route::get('/clients', function () {
+    return view('dashboard.clients');
+})->middleware(['auth','Clients'])->name('clients');
+
+// Admin Dashboard
+Route::get('/admins', function () {
+    return view('dashboard.admins');
+})->middleware(['auth','Admins'])->name('admins');
 
 require __DIR__.'/auth.php';
